@@ -1,5 +1,5 @@
 # ItemVault
-Create a basic application using Djangowhich can save items anddisplay them
+Create a basic application using Django which can save items and display them
 ## Installation:
 ### Method - 1
 Python and Django need to be installed
