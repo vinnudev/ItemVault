@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'store/item_list.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Item List</title>
+</head>
+<body>
+    <h1>
+        <i class="fa-solid fa-list"></i>
+        Items
+    </h1>
+    <table>
+        <tr>
+            <th><a href="?sort=name" style="color: white;">Name</a></th>
+            <th>Description</th>
+            <th><a href="?sort=price" style="color: white;">Price</a></th>
+            <th><a href="?sort=created_at" style="color: white;">Created At</a></th>
+        </tr>
+        {% for item in page_obj %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.formatted_price }}</td>
+            <td>{{ item.created_at|date:"Y-m-d H:i:s" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No items available.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% comment %} For page number  {% endcomment %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}"> &laquo; previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                
+                <a href="?page={{ page_obj.next_page_number }}">next &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
