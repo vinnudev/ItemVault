@@ -43,4 +43,3 @@ You can access the django admin page at http://127.0.0.1:8000/admin and login wi
 ![Alt text](images/3.png)
 
 
-For 
