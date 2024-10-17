@@ -33,3 +33,7 @@ python manage.py runserver
 Then go to the browser and enter the url http://127.0.0.1:8000/
 ## Admin page
 You can access the django admin page at http://127.0.0.1:8000/admin and login with username 'admin' and the password 'admin'.
+
+## Screenshots
+![Alt text](images/1.png)
+
